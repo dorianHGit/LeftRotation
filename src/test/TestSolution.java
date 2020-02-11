@@ -4,6 +4,8 @@ import main.Solution;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestSolution {
@@ -17,6 +19,8 @@ public class TestSolution {
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
+
+    /*Test Cases From HackerRank*/
 
     @Test
     public void testCaseArrayOfFiveFourRotations(){
@@ -38,6 +42,8 @@ public class TestSolution {
         int[] inputArray = {33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97};
         assertEquals(expectedArray, solution.rotLeft(inputArray, 13));
     }
+
+    /*Testing beyond the constraint limits*/
 
     @Test
     public void assertEmptyArrayThrowsException(){
@@ -82,6 +88,31 @@ public class TestSolution {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Items in the array must be integers between 1 and 10^6");
         int[] inputArray = {(int)Math.pow(10,6)+1,2,3,4,5};
+        solution.rotLeft(inputArray, 4);
+    }
+
+    /*Testing on the constraint limits*/
+
+    @Test
+    public void assertArrayOfMinimumLengthRunsAsNormal(){
+        int[] expectedArray = {1};
+        int[] inputArray = {1};
+        assertEquals(expectedArray, solution.rotLeft(inputArray, 1));
+    }
+
+    @Test
+    public void assertArrayOfMaximumLengthRunsAsNormal(){
+        int[] expectedArray = new int[(int)Math.pow(10, 5)];
+        Arrays.fill(expectedArray, 1);
+        int[] inputArray = new int[(int)Math.pow(10, 5)];
+        Arrays.fill(inputArray, 1);
+        assertEquals(expectedArray, solution.rotLeft(inputArray, (int)Math.pow(10,5)));
+    }
+
+    @Test
+    public void assertArrayItem10pow6RunsAsNormal(){
+        int[] expectedArray = {5,(int)Math.pow(10,6),2,3,4};
+        int[] inputArray = {(int)Math.pow(10,6),2,3,4,5};
         solution.rotLeft(inputArray, 4);
     }
 }
