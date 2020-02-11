@@ -49,7 +49,8 @@ public class TestSolution {
     public void assertEmptyArrayThrowsException(){
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("You cannot submit an empty array");
-        int[] inputArray = new int[]{};
+        int[] inputArray = new int[0];
+        solution.rotLeft(inputArray, 1);
     }
 
     @Test
@@ -57,6 +58,7 @@ public class TestSolution {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Submitted arrays must be smaller than 10 to the power of 5.");
         int[] inputArray = new int[(int)Math.pow(10,5)+1];
+        solution.rotLeft(inputArray, 1);
     }
 
     @Test
