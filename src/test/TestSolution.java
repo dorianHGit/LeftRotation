@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class TestSolution {
@@ -26,21 +27,21 @@ public class TestSolution {
     public void testCaseArrayOfFiveFourRotations(){
         int[] expectedArray = {5,1,2,3,4};
         int[] inputArray = {1,2,3,4,5};
-        assertEquals(expectedArray, solution.rotLeft(inputArray, 4));
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, 4));
     }
 
     @Test
     public void testCaseArrayOfTwentyTenRotations(){
         int[] expectedArray = {77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84, 77};
         int[] inputArray = {41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51};
-        assertEquals(expectedArray, solution.rotLeft(inputArray, 10));
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, 10));
     }
 
     @Test
     public void testCaseArrayOfFifteenThirteenRotations(){
         int[] expectedArray = {87, 97, 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60};
         int[] inputArray = {33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97};
-        assertEquals(expectedArray, solution.rotLeft(inputArray, 13));
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, 13));
     }
 
     /*Testing beyond the constraint limits*/
@@ -99,7 +100,7 @@ public class TestSolution {
     public void assertArrayOfMinimumLengthRunsAsNormal(){
         int[] expectedArray = {1};
         int[] inputArray = {1};
-        assertEquals(expectedArray, solution.rotLeft(inputArray, 1));
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, 1));
     }
 
     @Test
@@ -108,7 +109,7 @@ public class TestSolution {
         Arrays.fill(expectedArray, 1);
         int[] inputArray = new int[(int)Math.pow(10, 5)];
         Arrays.fill(inputArray, 1);
-        assertEquals(expectedArray, solution.rotLeft(inputArray, (int)Math.pow(10,5)));
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, (int)Math.pow(10,5)));
     }
 
     @Test
