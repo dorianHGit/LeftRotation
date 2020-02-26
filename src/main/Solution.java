@@ -46,8 +46,8 @@ public class Solution {
 
     /**
      * Finds the greatest common divisor via Euclid's algorithm.
-     * @param d
-     * @param length
+     * @param d - the number of elements the array is being rotated by
+     * @param length - the length of the array
      * @return greatest common divisor.
      */
     private int gcdByEuclid(int d, int length) {

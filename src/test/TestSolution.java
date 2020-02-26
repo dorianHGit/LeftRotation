@@ -7,7 +7,6 @@ import org.junit.rules.ExpectedException;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 public class TestSolution {
 
@@ -19,7 +18,7 @@ public class TestSolution {
     }
 
     @Rule
-    public ExpectedException expectedException = ExpectedException.none();
+    public final ExpectedException expectedException = ExpectedException.none();
 
     /*Test Cases From HackerRank*/
 
@@ -116,6 +115,6 @@ public class TestSolution {
     public void assertArrayItem10pow6RunsAsNormal(){
         int[] expectedArray = {5,(int)Math.pow(10,6),2,3,4};
         int[] inputArray = {(int)Math.pow(10,6),2,3,4,5};
-        solution.rotLeft(inputArray, 4);
+        assertArrayEquals(expectedArray, solution.rotLeft(inputArray, 4));
     }
 }
